@@ -30,6 +30,7 @@ namespace InternetShop
         {
             app.UseStaticFiles();
             app.UseDeveloperExceptionPage();
+            app.UseBrowserLink();
             app.UseMvc(routes=>
             {
                 routes.MapRoute(
@@ -39,7 +40,7 @@ namespace InternetShop
                     );
                 routes.MapRoute(
                     name: null,
-                    template: "Product/{ProductId:int}",
+                    template: "Product{ProductId:int}",
                     defaults: new { controller = "ProductDatails", action ="Index"  }
                     ) ;
             }
