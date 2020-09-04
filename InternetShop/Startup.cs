@@ -34,8 +34,13 @@ namespace InternetShop
             {
                 routes.MapRoute(
                     name: "Home",
-                    template: "",
-                    defaults:new { controller="Home", action="Index"}
+                    template: "Home",
+                    defaults: new { controller = "Home", action = "Index" }
+                    );
+                routes.MapRoute(
+                    name: null,
+                    template: "Product/{ProductId:int}",
+                    defaults: new { controller = "ProductDatails", action ="Index"  }
                     ) ;
             }
                 

@@ -16,6 +16,7 @@ namespace InternetShop.Models
         public string Category { get; set; }
         public int Discount { get; set; }
         public int Rang { get; set; }
+        public int Raiting { get; set; }
 
     }
 }
