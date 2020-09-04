@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@ViewBag.Title</title>
     <link rel="icon" href="img/Fevicon.png" type="image/png">
-    <link rel="stylesheet" href="vendors/**/*.css">
+    <link rel="stylesheet"  asp-href-include="vendors/**/*.css"
+                            asp-href-exclude="vendors/**/demo.css">
     @*<link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -30,9 +31,9 @@
                     </button>
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item @(ViewBag.Active=="Home"?"active":"") "><a class="nav-link" href="Home">Home</a></li>
                             <li class="nav-item active submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                <a href="#" class="nav-link @(ViewBag.Active=="Shop"?"active":"") dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                    aria-expanded="false">Shop</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
@@ -43,7 +44,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                <a href="#" class="nav-link @(ViewBag.Active=="Blog"?"active":"") dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                    aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
@@ -51,7 +52,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                <a href="#" class="nav-link @(ViewBag.Active=="Pages"?"active":"") dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                    aria-expanded="false">Pages</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
@@ -59,7 +60,7 @@
                                     <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link @(ViewBag.Active=="Cotact"?"active":"")" href="contact.html">Contact</a></li>
                         </ul>
 
                         <ul class="nav-shop">
