@@ -22,12 +22,15 @@ namespace InternetShop
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:SportStoreProducts:ConnectionString"]));
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMemoryCache();
             services.AddSession();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSession();
             app.UseStaticFiles();
             app.UseDeveloperExceptionPage();
             app.UseBrowserLink();
@@ -43,6 +46,16 @@ namespace InternetShop
                     template: "Product{ProductId:int}",
                     defaults: new { controller = "ProductDatails", action ="Index"  }
                     ) ;
+                routes.MapRoute(
+                    name: null,
+                    template: "Cart",
+                    defaults: new { controller = "Cart", action = "Index" }
+                    );
+                routes.MapRoute(
+                    name: null,
+                    template: "products",
+                    defaults: new { controleler = "Products", Action = "Index" }
+                    );
             }
                 
                 );
