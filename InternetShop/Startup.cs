@@ -21,6 +21,7 @@ namespace InternetShop
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:SportStoreProducts:ConnectionString"]));
             services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddTransient<ICategoryRepository, EFCategoryRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -34,30 +35,30 @@ namespace InternetShop
             app.UseStaticFiles();
             app.UseDeveloperExceptionPage();
             app.UseBrowserLink();
-            app.UseMvc(routes=>
-            {
-                routes.MapRoute(
-                    name: "Home",
-                    template: "Home",
-                    defaults: new { controller = "Home", action = "Index" }
-                    );
-                routes.MapRoute(
-                    name: null,
-                    template: "Product{ProductId:int}",
-                    defaults: new { controller = "ProductDatails", action ="Index"  }
-                    ) ;
-                routes.MapRoute(
-                    name: null,
-                    template: "Cart",
-                    defaults: new { controller = "Cart", action = "Index" }
-                    );
-                routes.MapRoute(
-                    name: null,
-                    template: "products",
-                    defaults: new { controleler = "Products", Action = "Index" }
-                    );
-            }
-                
+            _ = app.UseMvc(routes =>
+              {
+                  routes.MapRoute(
+                      name: "Home",
+                      template: "Home",
+                      defaults: new { controller = "Home", action = "Index" }
+                      );
+                  routes.MapRoute(
+                      name: null,
+                      template: "Product{ProductId:int}",
+                      defaults: new { controller = "ProductDatails", action = "Index" }
+                      );
+                  routes.MapRoute(
+                      name: null,
+                      template: "Cart",
+                      defaults: new { controller = "Cart", action = "Index" }
+                      );
+                  routes.MapRoute(
+                      name: null,
+                      template: "products",
+                      defaults: new { controller = "Products", action = "Index" }
+                      );
+              }
+
                 );
 
            

@@ -13,7 +13,7 @@ namespace InternetShop.Models
         public Decimal Price { get; set; }
         public int Specifications { get; set; }
         public string Image { get; set; }
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
         public int Discount { get; set; }
         public int Rang { get; set; }
         public int Raiting { get; set; }

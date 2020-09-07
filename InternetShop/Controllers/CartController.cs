@@ -18,10 +18,10 @@ namespace InternetShop.Controllers
             return View(cart.Lines);
         }
        [Route ("Cart/AddToCart")]
-        public RedirectToActionResult AddToCart(int productId) {
+        public RedirectToActionResult AddToCart(int productId,string returnUrl) {
             Product product = repository.Products.Where(p => p.ProductId == productId).FirstOrDefault();
             cart.AddItem(product, 1);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", returnUrl);
         }
     }
 }
