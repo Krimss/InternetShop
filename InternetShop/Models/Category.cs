@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace InternetShop.Models
 {
-    public class Categorys
+    public class Category
     {[Key]
         public int CategoryId { get; set; }
-        public int CategoryName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

@@ -11,9 +11,12 @@ namespace InternetShop.Controllers
     {
         private IProductRepository repo;
         public Products(IProductRepository repository) => repo = repository;
-        public IActionResult Index()
+        public IActionResult Index(int CategoryID=0)
+
         {
-            return View(repo.Products);
+            IQueryable<Product> products=CategoryID==0?repo.Products:repo.Products.Where(p=>p.CategoryId==CategoryID) ;
+            
+            return View(products);
         }
     }
 }

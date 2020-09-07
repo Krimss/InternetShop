@@ -8,7 +8,7 @@ namespace InternetShop.Models
 {
     public interface ICategoryRepository
     {
-        IQueryable<Categorys> Categorys { get; }
+        IQueryable<Category> Categorys { get; }
 
     }
 }

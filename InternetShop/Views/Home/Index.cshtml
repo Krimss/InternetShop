@@ -69,7 +69,7 @@
                 @foreach (var p in Model.Take(4))
                 {
                     <div class="col-md-6 col-lg-4 col-xl-3">
-                       @await Component.InvokeAsync("ProductComponentw",new {product=p,returnUrl="Home" }) 
+                       @await Component.InvokeAsync("ProductComponent",new {product=p,returnUrl="Home" }) 
                     </div>
                 }
 

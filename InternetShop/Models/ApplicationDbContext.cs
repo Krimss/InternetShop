@@ -12,7 +12,7 @@ namespace InternetShop.Models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Categorys> Categorys { get; set; }
+        public DbSet<Category> Categorys { get; set; }
     
     }
 

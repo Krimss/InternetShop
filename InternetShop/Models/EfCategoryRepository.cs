@@ -9,6 +9,6 @@ namespace InternetShop.Models
     {
         private ApplicationDbContext context;
         public EFCategoryRepository(ApplicationDbContext ctx) => context = ctx;
-        public IQueryable<Categorys> Categorys => context.Categorys;
+        public IQueryable<Category> Categorys => context.Categorys;
     }
 }

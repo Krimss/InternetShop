@@ -1,0 +1,18 @@
+﻿@model IQueryable<Category>
+    <div class="sidebar-categories">
+        <div class="head">Browse Categories</div>
+        <ul class="main-categories">
+            <li class="common-filter">
+                <form action="Products" method="post">
+                    <ul>
+                        @foreach (var c in Model)
+                        {
+                        <li class="filter-list">
+                            <button class="btn-link" type="submit" name="CategoryID" value="@c.CategoryId">@c.CategoryName </button>
+                        </li>
+                        }
+                    </ul>
+                </form>
+            </li>
+        </ul>
+    </div>
